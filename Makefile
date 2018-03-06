@@ -1,7 +1,6 @@
 CC = gcc
 AR = ar
-ARTIFACT = libunittest
-HEADER = unittest.h
+ARTIFACT = libunittest.a
 INC = .
 SRC = unittest.c
 OBJ = $(SRC:.c=.o)
