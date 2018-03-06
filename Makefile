@@ -1,15 +1,16 @@
-CXX = g++ -std=c++11
-HEADER = EnumToStr.h
+CC = gcc
+AR = ar
+ARTIFACT = libunittest
+HEADER = unittest.h
 INC = .
-usrCode = main.cpp
-output = main
+SRC = unittest.c
+OBJ = $(SRC:.c=.o)
 
-all: $(usrCode:.cpp=.o)
-	$(CXX) $(usrCode:.cpp=.o) -I$(INC) -o $(output)
+all: $(OBJ)
+	$(AR) -cr $(ARTIFACT) -I$(INC) $(OBJ)
 
-%.o: %.cpp
-	$(CXX) -c $<
+%.o: %.c
+	$(CC) -c $< -I$(INC)
 
 clean:
-	rm $(output) $(usrCode:.cpp=.o)
->>>>>>> c11
+	rm $(OBJ) $(ARTIFACT)
